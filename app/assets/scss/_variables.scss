@@ -1,0 +1,46 @@
+$white: #ffffff;
+$gray-100: #e9ecef;
+$gray-300: #d0d0d0;
+$gray-500: #888888;
+$gray-600: #777777;
+$gray-800: #444444;
+$gray-900: #2d2d2d;
+$black: #000000;
+
+$pink-main: #cd9b8c;
+$red-error: #ff0000;
+$green-success: #038d1a;
+$blue-link: #0000ff;
+
+$color-bg-body: $white;
+$color-bg-secondary: $gray-100;
+
+$color-text-primary: $gray-900;
+$color-text-secondary: $gray-600;
+$color-text-tertiary: $gray-500;
+$color-text-inverse: $white;
+
+$color-border: $gray-300;
+$color-primary: #b9f6f0;
+$color-hightlight: #c0f1ff;
+
+$font-size-mini: 0.8rem;
+$font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
+$font-size-lg: 2rem;
+
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+
+  --bg-color-1: #{$color-bg-body};
+  
+  --header-h: 46px;
+  --tabbar-h: 50px;
+  --minibar-h: 50px;
+  --control-bar-h: 44px;
+
+  --layout-max-width: 600px;
+}

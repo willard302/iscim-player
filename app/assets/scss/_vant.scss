@@ -1,0 +1,88 @@
+@use 'sass:color';
+
+* {
+  --van-button-default-background: 0;
+  --van-button-default-border-color: 0;
+  --van-button-icon-size: 24px;
+  --van-background-2: #f7f8fa;
+}
+
+.custom-tab {
+  --van-tabs-card-height: 48px;
+
+  .van-tabs__wrap {
+    overflow: visible;
+    padding-right: 3px;
+  }
+  .van-tabs__nav--card {
+    border: 0;
+    margin: 0;
+    background: transparent;
+  }
+  .van-tab--card {
+    color: $color-text-primary;
+    line-height: 1;
+    font-weight: 500;
+    font-feature-settings: "palt" 1;
+    text-align: center;
+    border: 1px solid color.adjust($black, $alpha: -0.85);
+    box-shadow: 2px 2px 3px color.scale($gray-900, $lightness: 12%);
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover,
+    &:focus,
+    &.van-tab--active {
+      color: color.scale($pink-main, $lightness: -20%);
+      box-shadow: unset;
+      border: 2px solid $pink-main;
+      background: transparent;
+    }
+  }
+}
+
+.theme-1 .custom-tab .van-tab--card {
+  &:hover,
+  &:focus,
+  &.van-tab--active {
+    background-image: linear-gradient(to right top, #f0e596, rgb(255, 249.2429906542, 199), #e6cca6);
+  }
+}
+
+.theme-2 .custom-tab .van-tab--card {
+  &:hover,
+  &:focus,
+  &.van-tab--active {
+    background-image: linear-gradient(to right top,#ead1fc, color.scale(#dadcff, $lightness: -10%),#d5e5fb);
+  }
+}
+
+.custom-button {
+  .van-button {
+    width: 100%;
+    color: $color-text-primary;
+    border: 1px solid color.adjust($black, $alpha: -0.85);
+    box-shadow: 2px 2px 3px color.scale($gray-900, $lightness: 12%);
+    background: transparent;
+
+    &:hover,
+    &:focus,
+    &.van-tab--active {
+      color: color.scale($pink-main, $lightness: -20%);
+      box-shadow: unset;
+      border: 2px solid $pink-main;
+    }
+  }
+}
+
+.van-notice-bar {
+  border: 1.5px solid #000000;
+  border-radius: 10px;
+  --van-notice-bar-line-height: 20px;
+  margin-top: 10px;
+}
+
+.showMiniBar .sub-options.van-popup--bottom {
+  bottom: var(--minibar-h);
+  position: absolute;
+}
