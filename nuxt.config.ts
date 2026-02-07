@@ -4,10 +4,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/supabase', 
-    '@vant/nuxt', 
-    '@pinia/nuxt', 
-    'pinia-plugin-persistedstate/nuxt'
+    '@nuxtjs/supabase',
+    '@vant/nuxt',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/i18n'
   ],
   supabase: {
     redirect: false,
@@ -33,5 +34,12 @@ export default defineNuxtConfig({
   },
   plugins: [
     {src: '~/plugins/vant.client.ts', mode: 'client' }
-  ]
+  ],
+  i18n: {
+    defaultLocale: 'tw',
+    locales: [
+      {code: 'en', name: 'English', file: 'en.ts'},
+      {code: 'tw', name: '繁體中文', file: 'tw.ts'}
+    ]
+  }
 })
