@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const musicStore = useMainStore();
+const musicStore = useMusicStore();
 </script>
 
 <template>
