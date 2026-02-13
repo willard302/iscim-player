@@ -13,7 +13,7 @@ const onClickRight = () => {
 <template>
   <van-nav-bar 
     fixed
-    :title="titleText"
+    :title="$t(titleText)"
     @click-right="onClickRight"
   >
     <template #left>

@@ -18,7 +18,7 @@ const onChange = (page: number) => {
       :icon="navItem.icon"
       :name="navIdx"
     >
-      {{ navItem.label }}
+      {{ $t(navItem.label) }}
     </van-tabbar-item>
   </van-tabbar>
 </template>
