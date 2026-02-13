@@ -1,47 +1,47 @@
 <script setup lang="ts">
-// import PlayerFullScreen from '~/components/Player/FullScreen.vue';
-// import PlayerQueue from '~/components/Player/Queue.vue';
-// import PlayerQueueEditor from '~/components/Player/QueueEditor.vue';
-// import PlayerSet from '~/components/Player/Set.vue';
-// import PlayerSetOrderMusic from '~/components/Player/SetOrderMusic.vue';
-// import Preferences from '~/components/Preferences.vue';
-// import PolicyPrivacy from '~/components/Policy/Privacy.vue';
-// import PolicyService from '~/components/Policy/Service.vue';
+import PlayerFullScreen from '~/components/Player/FullScreen.vue';
+import PlayerQueue from '~/components/Player/Queue.vue';
+import PlayerQueueEditor from '~/components/Player/QueueEditor.vue';
+import PlayerSet from '~/components/Player/Set.vue';
+import PlayerSetOrderMusic from '~/components/Player/SetOrderMusic.vue';
+import Preferences from '~/components/Preferences.vue';
+import PolicyPrivacy from '~/components/Policy/Privacy.vue';
+import PolicyService from '~/components/Policy/Service.vue';
 import type { PopupPosition } from 'vant';
 
 const mainStore = useMainStore();
 const playerStore = usePlayerStore();
 const musicStore = useMusicStore();
-// const player = usePlayer();
-// const {initLocale} = useAppLocale();
+const player = usePlayer();
+const {initLocale} = useAppLocale();
 
 const hasQueue = computed(() => musicStore.queue.length > 0);
 const showPlayerMiniBar = computed(() => hasQueue.value && !playerStore.isExpanded);
 
 type PopupItem = 
-  // | {store: typeof playerStore; model: keyof typeof playerStore; component: any, full?: boolean, position?: PopupPosition}
-  // | {store: typeof musicStore; model: keyof typeof musicStore; component: any, full?: boolean, position?: PopupPosition}
+  | {store: typeof playerStore; model: keyof typeof playerStore; component: any, full?: boolean, position?: PopupPosition}
+  | {store: typeof musicStore; model: keyof typeof musicStore; component: any, full?: boolean, position?: PopupPosition}
   | {store: typeof mainStore; model: keyof typeof mainStore; component: any, full?: boolean, position?: PopupPosition};
 
 const popups: PopupItem[] = [
-  // { store: playerStore, model: 'isExpanded', component: markRaw(PlayerFullScreen), full: true },
-  // { store: musicStore, model: 'openQueue', component: markRaw(PlayerQueue), full: false },
-  // { store: musicStore, model: 'openQueueEditor', component: markRaw(PlayerQueueEditor), full: true, position: 'left' },
-  // { store: musicStore, model: 'openSet', component: markRaw(PlayerSet), full: true},
-  // { store: musicStore, model: 'openSetOrderMusic', component: markRaw(PlayerSetOrderMusic), full: true, position: 'left'},
-  // { store: mainStore, model: 'openPreferences', component: markRaw(Preferences), full: true },
-  // { store: mainStore, model: 'openPolicyPrivacy', component: markRaw(PolicyPrivacy), full: true },
-  // { store: mainStore, model: 'openPolicyService', component: markRaw(PolicyService), full: true },
+  { store: playerStore, model: 'isExpanded', component: markRaw(PlayerFullScreen), full: true },
+  { store: musicStore, model: 'openQueue', component: markRaw(PlayerQueue), full: false },
+  { store: musicStore, model: 'openQueueEditor', component: markRaw(PlayerQueueEditor), full: true, position: 'left' },
+  { store: musicStore, model: 'openSet', component: markRaw(PlayerSet), full: true},
+  { store: musicStore, model: 'openSetOrderMusic', component: markRaw(PlayerSetOrderMusic), full: true, position: 'left'},
+  { store: mainStore, model: 'openPreferences', component: markRaw(Preferences), full: true },
+  { store: mainStore, model: 'openPolicyPrivacy', component: markRaw(PolicyPrivacy), full: true },
+  { store: mainStore, model: 'openPolicyService', component: markRaw(PolicyService), full: true },
 ];
 
-// initLocale();
+initLocale();
 
-// onMounted(() => {
-//   player.initListeners();
-//   if (playerStore.src) {
-//     player.setSourceByIndex(playerStore.index);
-//   };
-// });
+onMounted(() => {
+  player.initListeners();
+  if (playerStore.src) {
+    player.setSourceByIndex(playerStore.index);
+  };
+});
 </script>
 <template>
   <div 
