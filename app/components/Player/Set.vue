@@ -21,13 +21,7 @@ const hasMusic = computed(() => {
   return musicStore.currentSet.content.length > 0;
 });
 
-onMounted(() => {
-  if (!musicStore.currentSet ) return;
-  if (Array.isArray(musicStore.currentSet.content)) return;
-})
-
 const handleMusicAction = (actionType: string) => {
-  console.log(actionType)
   if (!currentItem.value) return;
 
   switch(actionType) {
@@ -52,6 +46,13 @@ const handlePlayMusic = (musicItem: any) => {
   musicStore.setPlayerQueue(true);
 };
 
+const handlePlayMusicSet = () => {
+  // musicStore.resetMusic();
+  // if(!musicStore.currentSet) return;
+  console.log('handlePlayMusicSet', musicStore.currentSet)
+
+}
+
 const formatIndex = (index: number) => {
   return String(index + 1).padStart(2, '0');
 };
@@ -59,6 +60,11 @@ const formatIndex = (index: number) => {
 const handleAddMusic = () => {
   musicStore.setPlayerSetOrderMusic(true);
 };
+
+onMounted(() => {
+  if (!musicStore.currentSet ) return;
+  if (Array.isArray(musicStore.currentSet.content)) return;
+});
 </script>
 
 <template>
@@ -76,10 +82,10 @@ const handleAddMusic = () => {
       <div class="tab-controls">
         <van-row class="control-bar custom-button">
           <van-col>
-            <van-button icon="play" text="播放清單" />
+            <van-button icon="play" :text="$t('music_sets')" @click="handlePlayMusicSet" />
           </van-col>
           <van-col>
-            <van-button icon="add-square" text="新增音樂" @click="handleAddMusic" />
+            <van-button icon="add-square" :text="$t('add_some_music')" @click="handleAddMusic" />
           </van-col>
         </van-row>
       </div>

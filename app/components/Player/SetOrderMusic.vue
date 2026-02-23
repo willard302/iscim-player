@@ -44,10 +44,14 @@ const handleSelectChakra = (item: any) => {
 };
 
 const handleAddToSet = async(item: any) => {
+  const index = musicStore.currentSet?.content.length;
   const _set = musicStore.currentSet;
   if (!_set || !_set.id) return;
   if (!Array.isArray(_set.content)) _set.content = [];
-  _set.content.push(item);
+  _set.content.push({
+    id: index,
+    ...item
+  });
   const res = await updateSetToDb (_set.id, { content: _set.content});
 
   if (res) showSuccessToast($t("Toast.add_successfully"));

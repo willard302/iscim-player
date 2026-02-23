@@ -21,7 +21,8 @@ export type SetUpdate = Omit<OriginalSet['Update'], 'content' | 'chakras'> & {
 
 type OriginalMusic = Database['public']['Tables']['music_library'];
 export type MusicRow = OriginalMusic['Row'];
-export type MusicLocal = Omit<MusicRow, 'checked' | 'sort_order'> & {
+export type MusicLocal = Omit<MusicRow, 'index' | 'checked' | 'sort_order'> & {
+  index?: number
   checked?: boolean
   sort_order?: number
 }
