@@ -63,7 +63,7 @@ export const useMusicStore = defineStore("music", () => {
     if (!nextMode) return;
     playerStore.loop = nextMode;
 
-    showToast((`Music.${nextMode}`))
+    return `Music.${nextMode}`;
   };
 
   const composeMusic = (musicList: MusicRow[], musicClass: string) => {

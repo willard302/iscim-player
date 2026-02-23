@@ -20,6 +20,11 @@ const throttleToggle = throttle(player.togglePlay, 1000);
 const throttleNext = throttle(player.next, 1000);
 const throttlePrev = throttle(player.prev, 1000);
 
+const handleSetLoop = () => {
+  const currentLoop = musicStore.setLoop();
+  showToast($t(String(currentLoop)))
+};
+
 onMounted(() => musicStore.isDragging = false);
 </script>
 
@@ -60,7 +65,7 @@ onMounted(() => musicStore.isDragging = false);
       </div>
 
       <div class="buttons-wrapper">
-        <van-icon :name="loopIcon" size="24" color="#666666" @click="musicStore.setLoop()" />
+        <van-icon :name="loopIcon" size="24" color="#666666" @click="handleSetLoop" />
         <van-icon name="arrow-left" size="32" @click="throttlePrev" />
 
         <div class="play-btn" @click="throttleToggle">
